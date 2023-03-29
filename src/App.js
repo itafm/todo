@@ -1,24 +1,30 @@
-import logo from './logo.svg';
-import './App.css';
+import { Route, Routes, topbar } from "react-router-loading";
+import { Header } from "./components/Header";
+import AddTask from "./pages/AddTask";
+import { Home } from "./pages/Home";
+
+topbar.config({
+  autoRun: false,
+  barThickness: 5,
+  barColors: {
+    0: "rgba(26,  188, 156, .7)",
+    0.3: "rgba(41,  128, 185, .7)",
+    1.0: "rgba(231, 76,  60,  .7)",
+  },
+  shadowBlur: 5,
+  shadowColor: "red",
+  className: "topbar",
+});
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Header />
+      <Routes maxLoadingTime={500}>
+        <Route path="/add-task" element={<AddTask />} loading />
+        <Route path="/" element={<Home />} loading />
+      </Routes>
+    </>
   );
 }
 
