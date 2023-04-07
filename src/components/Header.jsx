@@ -1,36 +1,83 @@
-import React from 'react'
-import logo from '../image/me.png'
-import { Link, NavLink } from 'react-router-dom'
+import React from "react";
+import logo from "../image/logo.jpg";
+import { Link, NavLink } from "react-router-dom";
+import { useEffect } from "react";
+import { useState } from "react";
 
 const Header = () => {
-    return (
+  const [darkMode, setDarkMode] = useState(true);
 
-        <header>
+  useEffect(() => {
+    const body = document.querySelector("body");
+    if (darkMode) {
+      body.classList.add("dark-mode");
+    } else {
+      body.classList.remove("dark-mode");
+    }
+  }, [darkMode]);
 
+  const toggleMode = () => {
+    setDarkMode(!darkMode);
+  };
 
+  return (
+    <header>
+      <nav className="navbar navbar-expand-lg  navbar-dark">
+        <div className="container-fluid">
+          <img
+            className="logo shadow-sm w-40 animate__animated animate__zoomIn animate__slower"
+            src={logo}
+            alt=""
+          />
 
-            <nav className="navbar navbar-expand-lg bg-dark navbar-dark">
-                <div className="container-fluid">
-                    <img className='logo shadow-sm w-20 ' src={logo} alt="" />
-                    <Link className="navbar-brand mx-2 mt-2" to="#"><span className='text-danger'>P</span>ortfolio</Link>
-                    <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-                        <span className="navbar-toggler-icon"></span>
-                    </button>
-                    <div className="collapse navbar-collapse  " id="navbarNavAltMarkup">
-                        <div className="navbar-nav liste m-auto">
-                            <NavLink className="nav-link " aria-current="page" to="/">Home</NavLink>
-                            <NavLink className="nav-link" to="/about">About</NavLink>
-                            <NavLink className="nav-link" to="/services">Services</NavLink>
-                            <NavLink className="nav-link" to="/pro-jects">Projects</NavLink>
-                            <NavLink className="nav-link" to="/con-tacts">Contacts  </NavLink>
+          <button
+            className="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarNavAltMarkup"
+            aria-controls="navbarNavAltMarkup"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span className="navbar-toggler-icon"></span>
+          </button>
+          <div className="collapse navbar-collapse  " id="navbarNavAltMarkup">
+            <div className="navbar-nav liste m-auto">
+              <NavLink className="nav-link " aria-current="page" to="/">
+                Home
+              </NavLink>
+              <NavLink className="nav-link" to="/about">
+                About
+              </NavLink>
 
-                        </div>
-                    </div>
-                </div>
-            </nav>
+              <NavLink className="nav-link" to="/pro-jects">
+                Projects
+              </NavLink>
+              <NavLink className="nav-link" to="/con-tacts">
+                Contact{" "}
+              </NavLink>
+            </div>
+            <div className="form-check  form-switch">
+              <input
+                className="form-check-input bg-danger"
+                type="checkbox"
+                role="switch"
+                id="flexSwitchCheckChecked"
+                checked={darkMode}
+                onChange={toggleMode}
+              />
 
-        </header>
-
-    )
-}
-export default Header
+              <label
+                className="form-check-label"
+                htmlFor="flexSwitchCheckChecked"
+              >
+                {darkMode ? "Dark Mode" : "Light Mode"}
+              </label>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+  );
+};
+export default Header;

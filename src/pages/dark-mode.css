@@ -1,0 +1,32 @@
+.dark-mode {
+  background-color: black;
+}
+.dark-mode .navbar {
+  background-color: black;
+}
+.dark-mode .navbar a {
+  color: rgb(77, 77, 77);
+}
+.dark-mode .liste a {
+  color: red;
+}
+.dark-mode .btn {
+  background-color: black;
+  color: white;
+}
+.dark-mode .animate__slower {
+  color: white;
+}
+.dark-mode .icons a {
+  background-color: white;
+}
+.dark-mode .text {
+  color: white;
+}
+.icons a:hover {
+  background: red;
+}
+.dark-mode .active{
+  background-color: red;
+  border-radius: 50px;
+}

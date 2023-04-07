@@ -17,4 +17,15 @@
   width: 40px;
   height: 35px;
 }
+  .active{
+  background-color: black;
+  border-radius: 50px;
+}
+.navbar a:hover{
+  color: red;
+}
+.caerds  img{
+  height: 500px;
 
+  object-fit: cover;
+}

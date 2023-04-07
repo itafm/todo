@@ -1,41 +1,41 @@
-import React, { useState } from 'react'
-import emailjs from '@emailjs/browser';
-import toast, { Toaster } from 'react-hot-toast';
-import imag from "../image/Email campaign-pana.svg"
-export const Contacts = () => {
+import React, { useState } from "react";
+import emailjs from "@emailjs/browser";
+import toast, { Toaster } from "react-hot-toast";
+import imag from "../image/Email campaign-pana.svg";
+export const Contact = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
 
   function handleChangeName(e) {
-    setName(e.target.value)
+    setName(e.target.value);
   }
   function handleChangeEmail(e) {
-    setEmail(e.target.value)
+    setEmail(e.target.value);
   }
   function handleChangeMessage(e) {
-    setMessage(e.target.value)
+    setMessage(e.target.value);
   }
   function submit(e) {
     e.preventDefault();
     let data = {
-      "to_name": name,
-      "to_email": email,
-      "message": message
-    }
-    emailjs.send("service_o5vzliz", "template_ujw9cjn", data, "RCwEWjqZAW_Eh6r9c").then(() => {
-
-      // lorsque ca marche 
-      toast.success('Successfully toasted!')
-      setName("")
-      setEmail("")
-      setMessage("")
-    }).catch(() => {
-      //lorsque ca ne marche pas 
-      toast.error("This didn't work.")
-
-    }
-    )
+      to_name: name,
+      to_email: email,
+      message: message,
+    };
+    emailjs
+      .send("service_o5vzliz", "template_ujw9cjn", data, "RCwEWjqZAW_Eh6r9c")
+      .then(() => {
+        // lorsque ca marche
+        toast.success("Successfully toasted!");
+        setName("");
+        setEmail("");
+        setMessage("");
+      })
+      .catch(() => {
+        //lorsque ca ne marche pas
+        toast.error("This didn't work.");
+      });
   }
   return (
     <>
@@ -88,7 +88,7 @@ export const Contacts = () => {
                     />
                   </div>
                   <div className="form-group mb-3">
-                    <button className="btn btn-dark w-100">Send message</button>
+                    <button className="btn  w-100">Send message</button>
                   </div>
                 </form>
               </div>
@@ -101,10 +101,7 @@ export const Contacts = () => {
           </div>
         </div>
       </div>
-      <Toaster
-        position="top-center"
-        reverseOrder={false}
-      />
+      <Toaster position="top-center" reverseOrder={false} />
     </>
-  )
-}
+  );
+};

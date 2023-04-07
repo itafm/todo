@@ -1,0 +1,26 @@
+:root {
+  --color1: white;
+}
+body {
+  background-color: var(--color1);
+  color: black;
+}
+.navbar {
+  background-color: var(--color1);
+}
+.navbar a {
+  color: black;
+}
+.animate__slower {
+  color: black;
+}
+
+.btn {
+  background-color: red;
+}
+.icons a {
+  color: black;
+}
+.text {
+  color: black;
+}
